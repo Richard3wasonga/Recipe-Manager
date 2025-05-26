@@ -79,7 +79,7 @@ class Recipe:
             FROM recipes
             INNER JOIN ingredients
             ON recipes.id = ingredients.recipe_id
-            ORDER BY resipes.name
+            ORDER BY recipes.name
         """
         CURSOR.execute(sql)
         rows = CURSOR.fetchall()
