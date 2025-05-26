@@ -71,3 +71,15 @@ class Recipe:
 
         del type(self).all[self.id]
         self.id = None
+
+    def get_recipe_ingredient():
+        sql = """
+            SELECT recipes.name, ingredients.name, ingredients.quantity, ingredients.unit
+            FROM recipes
+            INNER JOIN ingredients
+            ON recipes.id = ingredients.recipe_id
+            ORDER BY resipes.name
+        """
+        CURSOR.execute(sql)
+        rows = CURSOR.fetchall()
+        
