@@ -72,17 +72,37 @@ class Recipe:
 
         del type(self).all[self.id]
         self.id = None
-
-    def get_recipe_ingredient():
+    
+    @classmethod
+    def find_by_id(cls, id):
         sql = """
-            SELECT recipes.name, ingredients.name, ingredients.quantity, ingredients.unit
+            SELECT *
             FROM recipes
-            INNER JOIN ingredients
-            ON recipes.id = ingredients.recipe_id
-            ORDER BY recipes.name
+            WHERE id = ?
         """
-        CURSOR.execute(sql)
-        rows = CURSOR.fetchall()
+        CURSOR.execute(sql, (id,))
+        row = CURSOR.fetchone()
+        return cls(id=row[0], name=row[1], cuisine=row[2], time_to_prepare=row[3], food_quantity=row[4]) if row else None
+
+    @classmethod
+    def find_by_name(cls, name):
+        sql = """
+            SELECT *
+            FROM recipes
+            WHERE LOWER(name) = LOWER(?)
+        """
+        CURSOR.execute(sql, (name,))
+        row = CURSOR.fetchone()
+        return cls(id=row[0], name=row[1], cuisine=row[2], time_to_prepare=row[3], food_quantity=row[4]) if row else None
+
+    def get_ingredients(self):
+        sql = """
+            SELECT name, quantity, unit
+            FROM ingredients
+            WHERE recipe_id = ?
+        """
+        CURSOR.execute(sql, (self.id,))
+        return CURSOR.fetchall()
 
         
         

@@ -1,6 +1,5 @@
 from models.__init__ import CONN, CURSOR
 from models.recipe import Recipe
-from models.recipe import get_recipe_ingredient
 from models.ingredient import Ingredient
 import ipdb
 
@@ -37,6 +36,16 @@ def testing():
     print(ingredient1_2)
     print(ingredient2_1)
     print(ingredient2_2)
+
+    print("\nIngredients for:", recipe1.name)
+    for name, quantity, unit in recipe1.get_ingredients():
+        print(f"{name:<12} {quantity:<8} {unit}")
+
+    # Example: print ingredients for recipe2
+    print("\nIngredients for:", recipe2.name)
+    for name, quantity, unit in recipe2.get_ingredients():
+        print(f"{name:<12} {quantity:<8} {unit}")
+
     ipdb.set_trace()
 
 testing()
