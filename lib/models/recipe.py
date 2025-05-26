@@ -1,5 +1,6 @@
 from models.__init__ import CURSOR, CONN
 
+
 class Recipe:
     
     all = {}
@@ -82,4 +83,6 @@ class Recipe:
         """
         CURSOR.execute(sql)
         rows = CURSOR.fetchall()
+
+        
         

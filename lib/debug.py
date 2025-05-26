@@ -1,5 +1,6 @@
 from models.__init__ import CONN, CURSOR
 from models.recipe import Recipe
+from models.recipe import get_recipe_ingredient
 from models.ingredient import Ingredient
 import ipdb
 

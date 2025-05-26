@@ -50,3 +50,4 @@ class Ingredient:
        ingredient = cls(name, quantity, unit, recipe_id)
        ingredient.save()
        return ingredient
+    
