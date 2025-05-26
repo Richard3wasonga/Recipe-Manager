@@ -2,9 +2,17 @@ from models.__init__ import CONN, CURSOR
 from models.recipe import Recipe
 from models.ingredient import Ingredient
 from tabulate import tabulate
+import time
+import sys
 
 def exit_application():
-    print("Goodbye!")
+    message = "Goodbye! Thanks for using Recipe Manager 🍽️"
+    print("\n" + "=" * len(message))
+    for char in message:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.03)  
+    print("\n" + "=" * len(message))
     exit()
 
 def list_all_recipes():
