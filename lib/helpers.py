@@ -2,19 +2,22 @@ from models.__init__ import CONN, CURSOR
 from models.recipe import Recipe
 from models.ingredient import Ingredient
 from tabulate import tabulate
+from colorama import init, Fore, Style
 import time
 import sys
 
+init(autoreset=True)
+
 def exit_application():
     message = "Goodbye! Thanks for using Recipe Manager 🍽️"
-    print("\n" + "=" * len(message))
+    print("\n" + Fore.YELLOW +  "=" * len(message))
     for char in message:
-        sys.stdout.write(char)
+        sys.stdout.write(Fore.MAGENTA + char)
         sys.stdout.flush()
-        time.sleep(0.03)  
-    print("\n" + "=" * len(message))
+        time.sleep(0.03)
+    print("\n" + Fore.YELLOW + "=" * len(message))
     exit()
-
+    
 def list_all_recipes():
     sql = "SELECT id, name, cuisine, time_to_prepare, food_quantity FROM recipes"
     CURSOR.execute(sql)
