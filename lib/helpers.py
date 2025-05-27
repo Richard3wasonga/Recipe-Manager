@@ -156,5 +156,40 @@ def delete_recipe():
         print(f"Recipe '{recipe.name}' and its ingredients deleted successfully")
     else:
         print("Delete operation cancelled.")
+
+def create_ingredient_for_recipe():
+    try:
+        recipe_id = int(input("Enter the ID of the recipe to add ingredients to: ").strip())
+    except ValueError:
+        print("Invalid input. Please enter a valid recipe ID.")
+        return
+
+    recipe = Recipe.find_by_id(recipe_id)
+    if not recipe:
+        print(f"No recipe found with ID {recipe_id}.")
+        return
+
+    while True:
+        name = input("Enter ingredient name (or 'done' to finish): ").strip()
+        if name.lower() == "done":
+            break
+
+        try:
+            quantity = float(input("Enter quantity: ").strip())
+        except ValueError:
+            print("Invalid quantity. Please enter a number.")
+            continue
+
+        unit = input("Enter unit (e.g., grams, cups): ").strip()
+
+        if not unit:
+            print("Unit cannot be empty.")
+            continue
+
+        ingredient = Ingredient.create(name, quantity, unit, recipe_id)
+        print(f"Ingredient '{ingredient.name}' added to recipe '{recipe.name}'.")
+
+    print(f"Finished adding ingredients to '{recipe.name}'.")
+
     
         
