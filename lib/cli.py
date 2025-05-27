@@ -4,7 +4,8 @@ from helpers import (
     find_recipe_by_id, 
     find_recipe_by_name, 
     show_ingredients_by_id,
-    create_recipe
+    create_recipe,
+    update_recipe
 )
 
 def menu():
@@ -32,6 +33,8 @@ def main():
             show_ingredients_by_id()
         elif choice == "5":
             create_recipe()
+        elif choice == "6":
+            update_recipe()
         else:
             print("Invalid choice: Try again")
 
