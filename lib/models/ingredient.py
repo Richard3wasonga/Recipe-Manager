@@ -21,7 +21,7 @@ class Ingredient:
             quantity REAL,
             unit TEXT,
             recipe_id INTEGER,
-            FOREIGN KEY(recipe_id) REFERENCES recepies(id))
+            FOREIGN KEY(recipe_id) REFERENCES recipes(id))
 
         """
         CURSOR.execute(sql)
@@ -50,4 +50,19 @@ class Ingredient:
        ingredient = cls(name, quantity, unit, recipe_id)
        ingredient.save()
        return ingredient
+
+    def delete(self):
+        if not self.id:
+            print("Ingredient not saved in database.")
+            return
+
+        sql = """
+            DELETE FROM ingredients
+            WHERE id = ?
+        """
+        CURSOR.execute(sql, (self.id,))
+        CONN.commit()
+
+        print(f"Ingredient '{self.name}' deleted successfully.")
+        self.id = None
     

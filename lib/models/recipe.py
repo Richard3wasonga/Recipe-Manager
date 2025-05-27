@@ -63,6 +63,10 @@ class Recipe:
         CONN.commit()
 
     def delete(self):
+        if not self.id:
+            print("Recipe not saved or already deleted.")
+            return
+
         sql = """
             DELETE FROM recipes
             WHERE id = ?
