@@ -8,11 +8,6 @@ import sys
 
 init(autoreset=True)
 
-Recipe.drop_table()
-Recipe.create_table()
-Ingredient.drop_table()
-Ingredient.create_table()
-
 def exit_application():
     message = "Goodbye! Thanks for using Recipe Manager 🍽️"
     print("\n" + Fore.YELLOW +  "=" * len(message))
@@ -127,3 +122,16 @@ def update_recipe():
 
     recipe.update()
     print(f"Recipe '{recipe.name}' updated successfully.")
+
+def reset_tables():
+    confrimation = input("This will DELETE ALL datain the database. Type 'yes' to continue and 'no' to cancle: ").strip().lower()
+    if confrimation == "yes":
+        Recipe.drop_table()
+        Recipe.create_table()
+        Ingredient.drop_table()
+        Ingredient.create_table()
+        print("Tables have been reset successfully.")
+    else:
+        print("Reset cancelled.")
+    
+        

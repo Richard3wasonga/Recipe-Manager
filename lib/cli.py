@@ -1,3 +1,5 @@
+from models.recipe import Recipe
+from models.ingredient import Ingredient
 from helpers import (
     exit_application, 
     list_all_recipes, 
@@ -5,8 +7,12 @@ from helpers import (
     find_recipe_by_name, 
     show_ingredients_by_id,
     create_recipe,
-    update_recipe
+    update_recipe,
+    reset_tables
 )
+
+Recipe.create_table()
+Ingredient.create_table()
 
 def menu():
     print("Select an option: ")
@@ -16,6 +22,8 @@ def menu():
     print("3. Find recipe by name")
     print("4. Show ingredients for a recipe")
     print("5. Create recipe")
+    print("6. Update recipe")
+    print("7. Reset tables")
 
 def main():
     while True:
@@ -35,6 +43,8 @@ def main():
             create_recipe()
         elif choice == "6":
             update_recipe()
+        elif choice == "7":
+            reset_tables()
         else:
             print("Invalid choice: Try again")
 
