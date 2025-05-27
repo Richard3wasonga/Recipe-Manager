@@ -74,9 +74,19 @@ def show_ingredients_by_id():
         print("Invalid input. Please enter a valid number.")
 
 def create_recipe():
-    f_name = str(input("Enter name of recipe: ").strip())
-    cuisine_origin = str(input("Enter cuisine of recipe: ").strip())
-    time_prepared = int(input("Enter time taken to prepare the recipe: ").strip())
-    f_quantity = int(input("Enter food quantity: ").strip())
-    recipe = Recipe(name=f_name, cuisine=cuisine_origin, time_to_prepare=time_prepared, food_quantity=f_quantity)
-    recipe.save()
+    f_name = input("Enter name of recipe: ").strip()
+    cuisine_origin = input("Enter cuisine of recipe: ").strip()
+    
+    if not f_name or not cuisine_origin:
+        print("Recipe name and cuisine cannot be empty.")
+        return
+
+    try:
+        time_prepared = int(input("Enter time taken to prepare the recipe (in minutes): ").strip())
+        f_quantity = int(input("Enter food quantity: ").strip())
+    except ValueError:
+        print("Please enter valid numbers for time and food quantity.")
+        return
+
+    recipe = Recipe.create(f_name, cuisine_origin, time_prepared, f_quantity)
+    print(f"Recipe '{recipe.name}' created successfully with ID {recipe.id}.")

@@ -13,7 +13,7 @@ class Recipe:
         self.food_quantity = food_quantity
     
     def __repr__(self):
-        return f"<Recipe id={self.id} name='{self.name}' cuisine='{self.cuisine}' time_to_prepare='{self.time_to_prepare} Min/Hr' food_quantity='{self.food_quantity}'>"
+        return f"<Recipe id={self.id} name='{self.name}' cuisine='{self.cuisine}' time_to_prepare='{self.time_to_prepare} Min' food_quantity='{self.food_quantity}'>"
 
     @classmethod
     def create_table(cls):
