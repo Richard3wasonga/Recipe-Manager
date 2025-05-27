@@ -65,4 +65,11 @@ class Ingredient:
 
         print(f"Ingredient '{self.name}' deleted successfully.")
         self.id = None
+
+    @classmethod
+    def delete_by_recipe_id(cls, recipe_id):
+        sql = "DELETE FROM ingredients WHERE recipe_id = ?"
+        CURSOR.execute(sql, (recipe_id,))
+        CONN.commit()
+        print(f"All ingredients for recipe ID {recipe_id} deleted.")
     

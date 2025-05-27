@@ -146,10 +146,11 @@ def delete_recipe():
         print(f"No recipe found with ID {recipe_id}.")
         return
 
-    confirm = input(f"Are you sure you want to delete recipe '{recipe.name}'? (yes/no): ").strip().lower()
+    confirm = input(f"Are you sure you want to delete recipe '{recipe.name}' and all its ingredients? (yes/no): ").strip().lower()
     if confirm == "yes":
+        Ingredient.delete_by_recipe_id(recipe.id)
         recipe.delete()
-        print(f"Recipe '{recipe.name}' deleted successfully.")
+        print(f"Recipe '{recipe.name}' and its ingredients deleted successfully")
     else:
         print("Delete operation cancelled.")
     
