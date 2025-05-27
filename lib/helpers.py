@@ -103,21 +103,22 @@ def update_recipe():
         return
     print(f"Current recipe info: {recipe}")
 
-    new_name = str(input(f"Enter new name of [{recipe.name}]: ").strip)
-    new_cuisine = str(input(f"Enter new cuisine of [{recipe.cuisine}]: ").strip())
+    new_name = input(f"Enter new name of [{recipe.name}]: ").strip()
+    new_cuisine = input(f"Enter new cuisine of [{recipe.cuisine}]: ").strip()
 
     if not new_name or not new_cuisine:
         print("New recipe name and new cuisine cannot be empty.")
         return
 
     try:
-        new_time = input(f"Enter new preparation time in minutes [{recipe.time_to_prepare}]: ").strip
+        new_time = input(f"Enter new preparation time in minutes [{recipe.time_to_prepare}]: ").strip()
         new_time = int(new_time) if new_time else recipe.time_to_prepare
 
         new_quantity = input(f"Enter new food quantity [{recipe.food_quantity}]: ").strip()
-        new_quantity = int(new_quantity) if new_quantity elser  recipe.food_quantity
+        new_quantity = int(new_quantity) if new_quantity else  recipe.food_quantity
     except ValueError:
         print("Invalid input. Time and quantity must be numbers.")
+        return
 
     recipe.name = new_name if new_name else recipe.name
     recipe.cuisine = new_cuisine if new_cuisine else recipe.cuisine
