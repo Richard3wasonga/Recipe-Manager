@@ -96,7 +96,10 @@ def update_recipe():
     if not recipe:
         print(f"No recipe found with ID {recipe_id}.")
         return
-    print(f"Current recipe info: {recipe}")
+    headers = ["ID", "Name", "Cuisine", "Time to Prepare", "Food Quantity"]
+    data = [[recipe.id, recipe.name, recipe.cuisine, recipe.time_to_prepare, recipe.food_quantity]]
+    print("\nCurrent recipe info:")
+    print(tabulate(data, headers=headers, tablefmt="simple"))
 
     new_name = input(f"Enter new name of [{recipe.name}]: ").strip()
     new_cuisine = input(f"Enter new cuisine of [{recipe.cuisine}]: ").strip()
