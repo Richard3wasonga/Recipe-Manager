@@ -59,7 +59,7 @@ class Recipe:
             SET name = ?, cuisine = ?, time_to_prepare = ?, food_quantity = ?
             WHERE id = ?
         """
-        CURSOR.execute(sql, (self.name, self.cuisine, self.time_to_prepare, self.food_quantity))
+        CURSOR.execute(sql, (self.name, self.cuisine, self.time_to_prepare, self.food_quantity, self.id))
         CONN.commit()
 
     def delete(self):
