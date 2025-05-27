@@ -191,5 +191,20 @@ def create_ingredient_for_recipe():
 
     print(f"Finished adding ingredients to '{recipe.name}'.")
 
-    
-        
+def delete_ingredient():
+    try:
+        ingredient_id = int(input("Enter the ID of the ingredient to delete: ").strip())
+    except ValueError:
+        print("Invalid input. Please enter a valid ingredient ID.")
+        return
+
+    ingredient = Ingredient.find_by_id(ingredient_id)
+    if not ingredient:
+        print(f"No ingredient found with ID {ingredient_id}.")
+        return
+
+    confirm = input(f"Are you sure you want to delete ingredient '{ingredient.name}'? (yes/no): ").strip().lower()
+    if confirm == "yes":
+        ingredient.delete()
+    else:
+        print("Delete operation cancelled.")

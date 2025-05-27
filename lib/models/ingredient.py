@@ -72,4 +72,18 @@ class Ingredient:
         CURSOR.execute(sql, (recipe_id,))
         CONN.commit()
         print(f"All ingredients for recipe ID {recipe_id} deleted.")
+
+    @classmethod
+    def find_by_id(cls, id):
+        sql = """
+            SELECT * 
+            FROM ingredients 
+            WHERE id = ?
+        """
+        CURSOR.execute(sql, (id,))
+        row = CURSOR.fetchone()
+        if row:
+            return cls(id=row[0], name=row[1], quantity=row[2], unit=row[3], recipe_id=row[4])
+        return None
+
     

@@ -10,6 +10,7 @@ from helpers import (
     update_recipe,
     delete_recipe,
     create_ingredient_for_recipe,
+    delete_ingredient,
     reset_tables
 )
 
@@ -27,7 +28,8 @@ def menu():
     print("6. Update recipe")
     print("7. Delete recipe")
     print("8. Create ingredient for a recipe")
-    print("9. Reset tables")
+    print("9. Delete an ingredient")
+    print("10. Reset tables")
 
 def main():
     while True:
@@ -52,6 +54,8 @@ def main():
         elif choice == "8":
             create_ingredient_for_recipe()
         elif choice == "9":
+            delete_ingredient()
+        elif choice == "10":
             reset_tables()
         else:
             print("Invalid choice: Try again")
