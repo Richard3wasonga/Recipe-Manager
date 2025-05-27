@@ -3,7 +3,8 @@ from helpers import (
     list_all_recipes, 
     find_recipe_by_id, 
     find_recipe_by_name, 
-    show_ingredients_by_id
+    show_ingredients_by_id,
+    create_recipe
 )
 
 def menu():
@@ -13,6 +14,7 @@ def menu():
     print("2. Find recipe by id")
     print("3. Find recipe by name")
     print("4. Show ingredients for a recipe")
+    print("5. Create recipe")
 
 def main():
     while True:
@@ -28,6 +30,8 @@ def main():
             find_recipe_by_name()
         elif choice == "4":
             show_ingredients_by_id()
+        elif choice == "5":
+            create_recipe()
         else:
             print("Invalid choice: Try again")
 
