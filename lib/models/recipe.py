@@ -70,7 +70,9 @@ class Recipe:
         CURSOR.execute(sql, (self.id,))
         CONN.commit()
 
-        del type(self).all[self.id]
+        if hasattr(type(self), "all") and self.id in type(self).all:
+            del type(self).all[self.id]
+
         self.id = None
     
     @classmethod
@@ -104,5 +106,4 @@ class Recipe:
         CURSOR.execute(sql, (self.id,))
         return CURSOR.fetchall()
 
-        
-        
+    

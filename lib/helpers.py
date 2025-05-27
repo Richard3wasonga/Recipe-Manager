@@ -133,5 +133,24 @@ def reset_tables():
         print("Tables have been reset successfully.")
     else:
         print("Reset cancelled.")
+
+def delete_recipe():
+    try:
+        recipe_id = int(input("Enter the ID of the recipe to delete: ").strip())
+    except ValueError:
+        print("Invalid input. Please enter a valid recipe ID.")
+        return
+
+    recipe = Recipe.find_by_id(recipe_id)
+    if not recipe:
+        print(f"No recipe found with ID {recipe_id}.")
+        return
+
+    confirm = input(f"Are you sure you want to delete recipe '{recipe.name}'? (yes/no): ").strip().lower()
+    if confirm == "yes":
+        recipe.delete()
+        print(f"Recipe '{recipe.name}' deleted successfully.")
+    else:
+        print("Delete operation cancelled.")
     
         
