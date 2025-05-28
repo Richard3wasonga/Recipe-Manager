@@ -348,3 +348,48 @@ The user interface functionality is neatly organized into helper functions that 
 | `delete_ingredient()`           | Deletes an ingredient by its ID with user confirmation.                     |
 | `adjust_ingredients_by_quantity()` | Scales all ingredient quantities according to a new desired serving size.|
 | `reset_tables()`                | Drops and recreates the recipe and ingredient tables, wiping all data.      |
+
+---
+
+## **Important Notes**
+
+- **Data persistence**: Recipe and ingredients are saved in SQLite database tables.
+
+- **Resetting tables**: The reset option will permanently erase all data, so use with caution.
+
+- **Input validation**: The CLI checks for inputs but make sure to enter correct data types when prompted.
+
+## **File structure**
+
+```css
+
+Recipe-Manager/
+├── lib/
+│   ├── cli.py
+│   ├── helpers.py
+│   └── models/
+│       ├── __init__.py
+│       ├── ingredient.py
+│       └── recipe.py
+├── Pipfile
+├── Pipfile.lock
+└── README.md
+
+```
+
+---
+
+## **Authors**
+- Richard Wasonga - [GitHub Profile](https://github.com/Richard3wasonga)
+
+## **Contributors**
+- Bob Oyier - [GitHub Profile](https://github.com/oyieroyier)
+
+- Titus Ouko - [GitHub Profile](https://github.com/costamay)
+
+---
+
+## **License**
+
+This project is open-source and available under the MIT License.
+
