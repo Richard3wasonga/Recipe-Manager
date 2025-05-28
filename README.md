@@ -330,6 +330,21 @@ class Ingredient:
 ```
 ---
 
-|
-|--------------|------------|
-|              |             |
+## CLI Helper Functions
+
+The user interface functionality is neatly organized into helper functions that simplify interaction and operations:
+
+| Function                        | Description                                                                 |
+|---------------------------------|-----------------------------------------------------------------------------|
+| `exit_application()`            | Gracefully exits the program with a colorful goodbye message.              |
+| `list_all_recipes()`            | Lists all recipes in a nicely formatted table.                             |
+| `find_recipe_by_id()`           | Prompts the user to enter an ID and fetches the matching recipe.           |
+| `find_recipe_by_name()`         | Prompts the user to enter a recipe name and fetches the matching recipe.   |
+| `show_ingredients_by_id()`      | Displays all ingredients for a given recipe ID.                            |
+| `create_recipe()`               | Walks the user through creating a new recipe with all necessary details.   |
+| `update_recipe()`               | Lets the user update fields of an existing recipe.                         |
+| `delete_recipe()`               | Deletes a recipe and all its ingredients after confirmation.               |
+| `create_ingredient_for_recipe()`| Adds ingredients interactively to an existing recipe.                      |
+| `delete_ingredient()`           | Deletes an ingredient by its ID with user confirmation.                    |
+| `adjust_ingredients_by_quantity()` | Scales all ingredient quantities according to a new desired serving size. |
+| `reset_tables()`                | Drops and recreates the recipe and ingredient tables, wiping all data.     |
