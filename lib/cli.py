@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from models.recipe import Recipe
 from models.ingredient import Ingredient
 from helpers import (
@@ -50,7 +51,7 @@ def menu():
 
     for opt in options:
         print(Fore.GREEN + f" {opt}")
-        time.sleep(0.03)  
+        time.sleep(0.10)  
 
 def main():
     while True:
