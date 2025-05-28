@@ -95,6 +95,7 @@ Represents a cooking recipe, storing details like:
 
 ```python
 
+
 from models.__init__ import CURSOR, CONN
 
 
@@ -111,6 +112,51 @@ class Recipe:
     
     def __repr__(self):
         return f"<Recipe id={self.id} name='{self.name}' cuisine='{self.cuisine}' time_to_prepare='{self.time_to_prepare} Min' food_quantity='{self.food_quantity}'>"
+
+    
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError("Name must be a non-empty string.")
+        self._name = value.strip()
+
+    
+    @property
+    def cuisine(self):
+        return self._cuisine
+
+    @cuisine.setter
+    def cuisine(self, value):
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError("Cuisine must be a non-empty string.")
+        self._cuisine = value.strip()
+
+    
+    @property
+    def time_to_prepare(self):
+        return self._time_to_prepare
+
+    @time_to_prepare.setter
+    def time_to_prepare(self, value):
+        if not isinstance(value, int) or value < 0:
+            raise ValueError("Time to prepare must be a non-negative integer.")
+        self._time_to_prepare = value
+
+    
+    @property
+    def food_quantity(self):
+        return self._food_quantity
+
+    @food_quantity.setter
+    def food_quantity(self, value):
+        if not isinstance(value, int) or value <= 0:
+            raise ValueError("Food quantity must be a positive integer.")
+        self._food_quantity = value
+
 
     @classmethod
     def create_table(cls):
@@ -206,8 +252,8 @@ class Recipe:
         """
         CURSOR.execute(sql, (self.id,))
         return CURSOR.fetchall()
+          
 
-    
 ```
 
 ---
@@ -257,6 +303,51 @@ class Ingredient:
 
     def __repr__(self):
         return f"<Ingrident name={self.name}  quantity={self.quantity} unit={self.unit} recipe_id={self.recipe_id} >"
+
+     
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError("Name must be a non-empty string.")
+        self._name = value.strip()
+
+    
+    @property
+    def quantity(self):
+        return self._quantity
+
+    @quantity.setter
+    def quantity(self, value):
+        if not isinstance(value, (int, float)) or value < 0:
+            raise ValueError("Quantity must be a non-negative number.")
+        self._quantity = value
+
+    
+    @property
+    def unit(self):
+        return self._unit
+
+    @unit.setter
+    def unit(self, value):
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError("Unit must be a non-empty string.")
+        self._unit = value.strip()
+
+    
+    @property
+    def recipe_id(self):
+        return self._recipe_id
+
+    @recipe_id.setter
+    def recipe_id(self, value):
+        if not isinstance(value, int):
+            raise ValueError("Recipe ID must be an integer.")
+        self._recipe_id = value
+
 
     @classmethod
     def create_table(cls):

@@ -12,6 +12,51 @@ class Ingredient:
     def __repr__(self):
         return f"<Ingrident name={self.name}  quantity={self.quantity} unit={self.unit} recipe_id={self.recipe_id} >"
 
+     
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError("Name must be a non-empty string.")
+        self._name = value.strip()
+
+    
+    @property
+    def quantity(self):
+        return self._quantity
+
+    @quantity.setter
+    def quantity(self, value):
+        if not isinstance(value, (int, float)) or value < 0:
+            raise ValueError("Quantity must be a non-negative number.")
+        self._quantity = value
+
+    
+    @property
+    def unit(self):
+        return self._unit
+
+    @unit.setter
+    def unit(self, value):
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError("Unit must be a non-empty string.")
+        self._unit = value.strip()
+
+    
+    @property
+    def recipe_id(self):
+        return self._recipe_id
+
+    @recipe_id.setter
+    def recipe_id(self, value):
+        if not isinstance(value, int):
+            raise ValueError("Recipe ID must be an integer.")
+        self._recipe_id = value
+
+
     @classmethod
     def create_table(cls):
         sql = """
