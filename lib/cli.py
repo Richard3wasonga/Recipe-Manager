@@ -12,6 +12,7 @@ from helpers import (
     delete_recipe,
     create_ingredient_for_recipe,
     delete_ingredient,
+    adjust_ingredients_by_quantity,
     reset_tables
 )
 
@@ -36,17 +37,18 @@ def menu():
     styled_title()
     print(Fore.CYAN + "Select an option:\n")
     options = [
-        "0. Exit application",
-        "1. List all recipes",
-        "2. Find recipe by ID",
-        "3. Find recipe by name",
-        "4. Show ingredients for a recipe",
-        "5. Create a new recipe",
-        "6. Update an existing recipe",
-        "7. Delete a recipe",
-        "8. Create ingredient for a recipe",
-        "9. Delete an ingredient",
-        "10. Reset all tables (DANGER)"
+        "0.  Exit application",
+        "1.  List all recipes",
+        "2.  Find recipe by ID",
+        "3.  Find recipe by name",
+        "4.  Show ingredients for a recipe",
+        "5.  Create a new recipe",
+        "6.  Update an existing recipe",
+        "7.  Delete a recipe",
+        "8.  Create ingredient for a recipe",
+        "9.  Delete an ingredient",
+        "10. Adjust ingredient quantities by food quantity",
+        "11. Reset all tables (DANGER)"
     ]
 
     for opt in options:
@@ -78,6 +80,8 @@ def main():
         elif choice == "9":
             delete_ingredient()
         elif choice == "10":
+            adjust_ingredients_by_quantity()
+        elif choice == "11":
             reset_tables()
         else:
             print(Fore.RED + "❌ Invalid choice: Try again")

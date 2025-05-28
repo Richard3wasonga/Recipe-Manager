@@ -208,3 +208,43 @@ def delete_ingredient():
         ingredient.delete()
     else:
         print("Delete operation cancelled.")
+
+def adjust_ingredients_by_quantity():
+    try:
+        recipe_id = int(input("Enter the recipe ID to scale ingredients: ").strip())
+    except ValueError:
+        print(Fore.RED + "Invalid input. Please enter a valid number.")
+        return
+
+    recipe = Recipe.find_by_id(recipe_id)
+    if not recipe:
+        print(Fore.RED + f"No recipe found with ID {recipe_id}.")
+        return
+
+    ingredients = recipe.get_ingredients()
+    if not ingredients:
+        print(Fore.YELLOW + f"No ingredients found for recipe '{recipe.name}'.")
+        return
+
+    print(Fore.CYAN + f"\nRecipe: {recipe.name}")
+    print(Fore.CYAN + f"Default serves: {recipe.food_quantity}")
+
+    try:
+        desired_quantity = int(input("Enter desired food quantity: ").strip())
+        if desired_quantity <= 0:
+            print(Fore.RED + "Desired quantity must be greater than 0.")
+            return
+    except ValueError:
+        print(Fore.RED + "Invalid input. Please enter a number.")
+        return
+
+    factor = desired_quantity / recipe.food_quantity
+
+    adjusted_ingredients = [
+        (name, round(quantity * factor, 2), unit)
+        for name, quantity, unit in ingredients
+    ]
+
+    print(Fore.GREEN + f"\nAdjusted ingredients for {desired_quantity} servings:\n")
+    headers = ["Ingredient", "Quantity", "Unit"]
+    print(tabulate(adjusted_ingredients, headers=headers, tablefmt="fancy_grid"))
