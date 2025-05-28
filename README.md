@@ -50,7 +50,7 @@ GITHUB REPOSITORY: [ recipe-management-system](https://github.com/Richard3wasong
 
 - **Intuitive,colorful and interactive CLI interface** with helpful prompts and tables.
 
-## **classes: Recipe & Ingrediebt
+## **classes: Recipe & Ingredient**
 
 ### **Recipe**
 
