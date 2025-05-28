@@ -31,9 +31,16 @@ GITHUB REPOSITORY: [ recipe-management-system](https://github.com/Richard3wasong
    chmod +x lib/cli.py
    ```
 
-5. Run the CLI application directly from the terminal:
+5. Run the CLI application directly from the terminal **(Linux, macOS)**:
    ```bash
    ./lib/cli.py
+   ```
+
+   and
+
+   For **(Windows)**
+   ```bash
+   python lib/cli.py
    ```
 
 ---
