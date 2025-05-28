@@ -17,9 +17,9 @@ GITHUB REPOSITORY: [ recipe-management-system](https://github.com/Richard3wasong
    ```
 
 2. Navigate to the project directory:
-  ```bash
-  cd recipe-manager
-  ```
+   ```bash
+   cd recipe-manager
+   ```
 
 3. Install required python packages:
    ```bash
