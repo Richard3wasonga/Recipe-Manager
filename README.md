@@ -54,6 +54,8 @@ GITHUB REPOSITORY: [ recipe-management-system](https://github.com/Richard3wasong
 
 - **Intuitive,colorful and interactive CLI interface** with helpful prompts and tables.
 
+- **Auto-clearing terminal output**: The terminal screen **automatically clears after each operation**, ensuring a clean and clutter-free interface for better readability and focus.
+
 ## **classes: Recipe & Ingredient**
 
 ### **Recipe**
