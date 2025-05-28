@@ -35,10 +35,9 @@ GITHUB REPOSITORY: [ recipe-management-system](https://github.com/Richard3wasong
    ```bash
    ./lib/cli.py
    ```
-
    and
 
-   For **(Windows)**
+   For **(Windows)**:
    ```bash
    python lib/cli.py
    ```
