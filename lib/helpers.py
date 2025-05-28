@@ -206,6 +206,7 @@ def delete_ingredient():
     confirm = input(f"Are you sure you want to delete ingredient '{ingredient.name}'? (yes/no): ").strip().lower()
     if confirm == "yes":
         ingredient.delete()
+        print(f"Ingredient {ingredient.name} deleted successfully.")
     else:
         print("Delete operation cancelled.")
 
