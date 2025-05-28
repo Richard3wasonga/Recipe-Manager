@@ -1,6 +1,10 @@
 
 # **Recipe Manager**
 
+![Python](https://img.shields.io/badge/python-3.10-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+
 A powerful, easy-to-use **command-line application** to organize your recipes and thier ingredients.Designed to help home cooks,chefs and food enthusiasts manage thier recipe collections effortlessly, from creating new recipes to scaling ingredient quantity based on servings.
 
 ## **Installation**
@@ -330,6 +334,34 @@ class Ingredient:
 ```
 ---
 
+## **CLI Appearance**
+
+```css
+
+======================
+🍽️  RECIPE MANAGER  🍽️
+======================
+Select an option:
+
+ 0.  Exit application
+ 1.  List all recipes
+ 2.  Find recipe by ID
+ 3.  Find recipe by name
+ 4.  Show ingredients for a recipe
+ 5.  Create a new recipe
+ 6.  Update an existing recipe
+ 7.  Delete a recipe
+ 8.  Create ingredient for a recipe
+ 9.  Delete an ingredient
+ 10. Adjust ingredient quantities by food quantity
+ 11. Reset all tables (DANGER)
+
+Enter your choice: :
+
+```
+
+---
+
 ## CLI Helper Functions
 
 The user interface functionality is neatly organized into helper functions that simplify interaction and operations:
@@ -377,6 +409,22 @@ Recipe-Manager/
 
 ```
 
+## **Technologies used**
+
+- Python 3.10+
+
+- SQLite3
+
+- Colorama - for colorful CLI UI
+
+- Tabulate - for formatting tables
+
+## **Future Enhancements**
+
+- Add recipe categories or tags
+
+- Add nutrition info per ingredient
+
 ---
 
 ## **Authors**
@@ -386,6 +434,10 @@ Recipe-Manager/
 - Bob Oyier - [GitHub Profile](https://github.com/oyieroyier)
 
 - Titus Ouko - [GitHub Profile](https://github.com/costamay)
+
+## **Contributing**
+
+Pull requests are welcome! For major changes, please open an issue first to discuss your ideas.
 
 ---
 
